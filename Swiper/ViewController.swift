@@ -10,16 +10,33 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var number: UILabel!
+    var value: Int = 50
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // Increase number by one
+    
+    @IBAction func swipeRight(_ sender: UISwipeGestureRecognizer) {
+        if value == 100 {
+            number.text = "100"
+        } else {
+            value = value + 1
+            number.text = String(value)
+        }
     }
-
-
+    
+    // Decrease number by one
+    
+    @IBAction func swipeLeft(_ sender: UISwipeGestureRecognizer) {
+        if value == 0 {
+            number.text = "0"
+        } else {
+            value = value - 1
+            number.text = String(value)
+        }
+    }
 }
 
